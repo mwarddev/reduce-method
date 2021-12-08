@@ -1,4 +1,4 @@
-  
+
 /**
  * To run this file in Gitpod, use the 
  * command node reduce.js in the terminal
@@ -6,7 +6,22 @@
 
 
 // Summing an array of numbers:
+const nums = [0, 1, 2, 3, 4];
+let sum = nums.reduce((acc, curr) => acc + curr, 0);
+console.log(sum);
 
+// Expanded function
+let sum1 = nums.reduce((acc, curr) => {
+  console.log(
+    "Accumulator: ", acc,
+    "Current Value: ", curr,
+    "Total: ", acc + curr
+  );
+  return acc + curr;
+  // Add explicit initial value
+  // If none given, calculations strat from [0]
+}, 0);
+console.log(sum1);
 
 const teamMembers = [
   {
