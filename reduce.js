@@ -19,7 +19,7 @@ let sum1 = nums.reduce((acc, curr) => {
   );
   return acc + curr;
   // Add explicit initial value
-  // If none given, calculations strat from [0]
+  // If none given, calculations start from [0]
 }, 0);
 console.log(sum1);
 
@@ -47,6 +47,18 @@ const teamMembers = [
 ];
 
 // Totaling a specific object property
-
+let totalExperience = teamMembers.reduce((acc, curr) => acc + curr.yrsExperience, 0);
+console.log(totalExperience);
 
 // Grouping by a property, and totaling it too
+// {Developer: 12, Designer: 4} <--- This is what we want!
+let experienceByProfession = teamMembers.reduce((acc, curr) => {
+  let key = curr.profession;
+  if (!acc[key]) {
+    acc[key] = curr.yrsExperience;
+  } else {
+    acc[key] += curr.yrsExperience;
+  }
+  return acc;
+}, {});
+console.log(experienceByProfession);
